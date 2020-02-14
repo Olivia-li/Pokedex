@@ -1,0 +1,57 @@
+//
+//  ProfileVC.swift
+//  Pokedex
+//
+//  Created by Olivia Li on 2020-02-13.
+//  Copyright © 2020 Olivia Li. All rights reserved.
+//
+
+import UIKit
+
+class ProfileVC: UIViewController {
+    
+    // Cell Identification Variable
+    var pokeInt:Int!
+    
+    // Header information
+    @IBOutlet weak var picture: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var id: UILabel!
+    
+    @IBOutlet weak var type1: UILabel!
+    @IBOutlet weak var type2: UILabel!
+    
+    // Statistics information headers
+    @IBOutlet weak var hp: UILabel!
+    @IBOutlet weak var attack: UILabel!
+    @IBOutlet weak var defense: UILabel!
+    @IBOutlet weak var spAtk: UILabel!
+    @IBOutlet weak var spDef: UILabel!
+    @IBOutlet weak var Speed: UILabel!
+    @IBOutlet weak var total: UILabel!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        name.text = PokemonManager.getPokemonNames(pokeInt)
+        id.text = String(PokemonManager.getPokemonIDs(pokeInt))
+        picture.image = PokemonManager.getPokemonPhotos(pokeInt)
+        type1.text = PokemonManager.getPokemonTypes(pokeInt)[0]
+        type2.text = PokemonManager.getPokemonTypes(pokeInt)[1]
+        hp.text = String(PokemonManager.getPokemonStats(pokeInt, "hp"))
+        attack.text = String(PokemonManager.getPokemonStats(pokeInt, "attack"))
+        defense.text = String(PokemonManager.getPokemonStats(pokeInt, "defense"))
+        spAtk.text = String(PokemonManager.getPokemonStats(pokeInt, "sp_atk"))
+        spDef.text = String(PokemonManager.getPokemonStats(pokeInt, "sp_def"))
+        Speed.text = String(PokemonManager.getPokemonStats(pokeInt, "speed"))
+        total.text = String(PokemonManager.getPokemonStats(pokeInt, "total"))
+    }
+    
+    
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+
+}
