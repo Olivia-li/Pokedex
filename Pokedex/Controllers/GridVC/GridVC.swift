@@ -16,9 +16,10 @@ class GridVC: UIViewController {
     var clickedPokemon: Int!
     let searchController = UISearchController(searchResultsController: nil)
     var filteredPokemon: [Pokemon] = []
+    var tempFilter: [Pokemon] = []
     var state:[String:Bool] = [:]
     var typeChanged: Bool = false
-    var filterContentExists: Bool = false
+    var isTypeEmpty: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,11 @@ class GridVC: UIViewController {
     }
     @IBAction func toggleClicked(_ sender: Any) {
         TableManager.toggle(view: PokeTable)
+        PokeTable.reloadData()
+    }
+    @IBAction func clearClicked(_ sender: Any) {
+        typeChanged = false
+        isTypeEmpty = false
         PokeTable.reloadData()
     }
     

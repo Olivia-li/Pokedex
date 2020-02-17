@@ -21,6 +21,11 @@ extension GridVC: UISearchResultsUpdating,UISearchBarDelegate{
     }
     
      func filterContentForSearchText(_ searchText: String, category: PokeType? = nil, scope: String = "All") {
+//        if typeChanged == true{
+//            tempFilter = filteredPokemon
+//            tempFilter = filteredPokemon.filter({( pokemon : Pokemon) -> Bool in
+//                
+//        }
            filteredPokemon = PokemonManager.PokemonList.filter({( pokemon : Pokemon) -> Bool in
                return pokemon.name.lowercased().contains(searchText.lowercased())
            })
@@ -28,7 +33,7 @@ extension GridVC: UISearchResultsUpdating,UISearchBarDelegate{
     }
     
     var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty || (self.typeChanged && self.filterContentExists)
+      return searchController.isActive && !isSearchBarEmpty || (self.typeChanged && self.isTypeEmpty)
     }
     
     func filterContentForType(_ dict: [String:Bool]) {
@@ -38,14 +43,15 @@ extension GridVC: UISearchResultsUpdating,UISearchBarDelegate{
                     return true
                 }
             }
-            print("type")
             return false
         }
-        if filteredPokemon.capacity != 0 {
-            self.filterContentExists = true
+        if filteredPokemon.count != 0 {
+            self.isTypeEmpty = true
+        }
+        else{
+            self.isTypeEmpty = false
         }
         typeChanged = true
         PokeTable.reloadData()
     }
-    
 }

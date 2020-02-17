@@ -17,8 +17,8 @@ class ProfileVC: UIViewController {
     
     // Header information
     @IBOutlet weak var picture: UIImageView!
-    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var id: UILabel!
+    @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var type1: UILabel!
     @IBOutlet weak var type2: UILabel!
