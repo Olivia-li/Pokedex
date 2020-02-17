@@ -19,54 +19,73 @@ class PokemonManager{
     }
     
     // Returns name of Pokemon at specific index
-    static func getPokemonNames (_ IndexPath: Int) -> String{
-        return PokemonList[IndexPath].name
+    static func getPokemonNames (_ pokeList: [Pokemon],_ IndexPath: Int) -> String{
+        return pokeList[IndexPath].name
     }
     
     // Returns id of Pokemon at specific index
-    static func getPokemonIDs(_ IndexPath: Int) -> Int{
-        return PokemonList[IndexPath].id
+    static func getPokemonIDs(_ pokeList: [Pokemon], _ IndexPath: Int) -> Int{
+        return pokeList[IndexPath].id
     }
     
     // Returns photo of Pokemon at specific index
     static func getPokemonPhotos(_ IndexPath:Int) -> UIImage{
-        let url = URL(string: PokemonList[IndexPath].imageUrl) ?? URL(string: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Pokeball.png")
-        let data = try? Data(contentsOf: url!)
-        return UIImage(data: data!)!
+        if let url = URL(string: PokemonList[IndexPath].imageUrl){
+            if let data = try? Data(contentsOf: url){
+                if let image = UIImage(data: data){
+                    return image
+                }
+            }
+        }
+        return UIImage(named:"pokeball.png")!
     }
     
-    // Gets specific stat of Pokemon at specific index
-    static func getPokemonStats(_ IndexPath:Int,_ stat: String) -> Int{
+    static func getPokemonPhotos(pokeList: [Pokemon], indexPath: Int) -> UIImage {
+    guard let url = try? URL(string: pokeList[indexPath].imageUrl) else {
+        return UIImage(named:"pokeball.png")!
+        }
+    guard let data = try? Data(contentsOf: url) else {
+        return UIImage(named:"pokeball.png")!
+        }
+    return UIImage(data: data)!
+    }
+    
+    
+    // Gets specific stat of Pokemon at specific index while filtering
+    static func getPokemonStats(_ pokeList: [Pokemon],_ IndexPath:Int,_ stat: String) -> Int{
         switch stat{
         case "total":
-            return PokemonList[IndexPath].total
+            return pokeList[IndexPath].total
         case "hp":
-            return PokemonList[IndexPath].health
+            return pokeList[IndexPath].health
         case "attack":
-            return PokemonList[IndexPath].attack
+            return pokeList[IndexPath].attack
         case "defense":
-            return PokemonList[IndexPath].defense
+            return pokeList[IndexPath].defense
         case "sp_atk":
-            return PokemonList[IndexPath].specialAttack
+            return pokeList[IndexPath].specialAttack
         case "sp_def":
-            return PokemonList[IndexPath].specialDefense
+            return pokeList[IndexPath].specialDefense
         case "speed":
-            return PokemonList[IndexPath].speed
+            return pokeList[IndexPath].speed
         default:
             return 0
         }
     }
     
-    // Returns array of types for Pokemon at specific index
-    static func getPokemonTypes(_ IndexPath:Int) -> [String]{
-        var typeList: [String] = []
-        for type in PokemonList[IndexPath].types {
-            typeList.append(type.rawValue)
+    // Returns array of types for Pokemon at specific index for search
+    static func getPokemonTypes(_ pokeList: [Pokemon], _ IndexPath:Int) -> [String]{
+            var typeList: [String] = []
+            for type in pokeList[IndexPath].types {
+                typeList.append(type.rawValue)
+            }
+            if typeList.count == 1 {
+                typeList.append("")
+            }
+            return typeList
         }
-        if typeList.count == 1 {
-            typeList.append("")
-        }
-        return typeList
     }
-    
-}
+
+
+
+

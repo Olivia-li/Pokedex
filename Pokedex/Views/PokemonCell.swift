@@ -16,5 +16,4 @@ class PokemonCell: UICollectionViewCell{
     
     var pokeInt:Int?
 
-
 }

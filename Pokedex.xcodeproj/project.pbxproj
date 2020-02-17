@@ -23,6 +23,7 @@
 		45CDCBC423F6105A0075AB65 /* PokemonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDCBC323F6105A0075AB65 /* PokemonManager.swift */; };
 		45CDCBC623F61E590075AB65 /* TableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDCBC523F61E590075AB65 /* TableManager.swift */; };
 		45CDCBC823F620680075AB65 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDCBC723F620680075AB65 /* ProfileVC.swift */; };
+		45F5EB1223FA40FB001480EF /* GridVC-SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F5EB1123FA40FB001480EF /* GridVC-SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		45CDCBC323F6105A0075AB65 /* PokemonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonManager.swift; sourceTree = "<group>"; };
 		45CDCBC523F61E590075AB65 /* TableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableManager.swift; sourceTree = "<group>"; };
 		45CDCBC723F620680075AB65 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		45F5EB1123FA40FB001480EF /* GridVC-SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GridVC-SearchView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				45950BCB23F607710018BF4F /* GridVC.swift */,
 				45950BFD23F60B440018BF4F /* GridVC-CollectionView.swift */,
+				45F5EB1123FA40FB001480EF /* GridVC-SearchView.swift */,
 				45CDCBC723F620680075AB65 /* ProfileVC.swift */,
 			);
 			path = Controllers;
@@ -319,6 +322,7 @@
 				45CDCBC823F620680075AB65 /* ProfileVC.swift in Sources */,
 				45950BCC23F607710018BF4F /* GridVC.swift in Sources */,
 				45CDCBC423F6105A0075AB65 /* PokemonManager.swift in Sources */,
+				45F5EB1223FA40FB001480EF /* GridVC-SearchView.swift in Sources */,
 				45950BFC23F608510018BF4F /* PokemonCell.swift in Sources */,
 				45950BC823F607710018BF4F /* AppDelegate.swift in Sources */,
 				45CDCBC223F60EB40075AB65 /* PokemonGenerator.swift in Sources */,

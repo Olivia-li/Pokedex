@@ -12,11 +12,19 @@ class GridVC: UIViewController {
     
     @IBOutlet weak var PokeTable: UICollectionView!
     var clickedPokemon: Int!
-    
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredPokemon: [Pokemon] = []
+    let categories = ["Bug", "Grass", "Dark", "Ground", "Dragon", "Ice", "Electric", "Normal", "Fairy", "Poison", "Fighting", "Fire", "Rock", "Flying", "Steel", "Ghost", "Water", "Unknown"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Pokemon Names"
+        self.navigationItem.searchController = searchController
+        self.definesPresentationContext = true
+        self.searchController.isActive = true
+        definesPresentationContext = true
     }
 
     @IBAction func toggleClicked(_ sender: Any) {
@@ -24,6 +32,7 @@ class GridVC: UIViewController {
         PokeTable.reloadData()
     }
     
-    
+
 }
+    
 
