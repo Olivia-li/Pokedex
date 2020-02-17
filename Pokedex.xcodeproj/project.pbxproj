@@ -24,6 +24,7 @@
 		45CDCBC623F61E590075AB65 /* TableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDCBC523F61E590075AB65 /* TableManager.swift */; };
 		45CDCBC823F620680075AB65 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDCBC723F620680075AB65 /* ProfileVC.swift */; };
 		45F5EB1223FA40FB001480EF /* GridVC-SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F5EB1123FA40FB001480EF /* GridVC-SearchView.swift */; };
+		45F5EB1423FA7844001480EF /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F5EB1323FA7844001480EF /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		45CDCBC523F61E590075AB65 /* TableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableManager.swift; sourceTree = "<group>"; };
 		45CDCBC723F620680075AB65 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		45F5EB1123FA40FB001480EF /* GridVC-SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GridVC-SearchView.swift"; sourceTree = "<group>"; };
+		45F5EB1323FA7844001480EF /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,10 +162,9 @@
 		45950BF823F607BB0018BF4F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				45950BCB23F607710018BF4F /* GridVC.swift */,
-				45950BFD23F60B440018BF4F /* GridVC-CollectionView.swift */,
-				45F5EB1123FA40FB001480EF /* GridVC-SearchView.swift */,
-				45CDCBC723F620680075AB65 /* ProfileVC.swift */,
+				45F5EB1723FA785C001480EF /* ProfileVC */,
+				45F5EB1523FA7848001480EF /* GridVC */,
+				45F5EB1623FA7855001480EF /* SettingsVC */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +186,32 @@
 				45CDCBC023F60EB40075AB65 /* PokemonGenerator.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		45F5EB1523FA7848001480EF /* GridVC */ = {
+			isa = PBXGroup;
+			children = (
+				45950BCB23F607710018BF4F /* GridVC.swift */,
+				45950BFD23F60B440018BF4F /* GridVC-CollectionView.swift */,
+				45F5EB1123FA40FB001480EF /* GridVC-SearchView.swift */,
+			);
+			path = GridVC;
+			sourceTree = "<group>";
+		};
+		45F5EB1623FA7855001480EF /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				45F5EB1323FA7844001480EF /* SettingsVC.swift */,
+			);
+			path = SettingsVC;
+			sourceTree = "<group>";
+		};
+		45F5EB1723FA785C001480EF /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				45CDCBC723F620680075AB65 /* ProfileVC.swift */,
+			);
+			path = ProfileVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +351,7 @@
 				45CDCBC423F6105A0075AB65 /* PokemonManager.swift in Sources */,
 				45F5EB1223FA40FB001480EF /* GridVC-SearchView.swift in Sources */,
 				45950BFC23F608510018BF4F /* PokemonCell.swift in Sources */,
+				45F5EB1423FA7844001480EF /* SettingsVC.swift in Sources */,
 				45950BC823F607710018BF4F /* AppDelegate.swift in Sources */,
 				45CDCBC223F60EB40075AB65 /* PokemonGenerator.swift in Sources */,
 				45CDCBC623F61E590075AB65 /* TableManager.swift in Sources */,

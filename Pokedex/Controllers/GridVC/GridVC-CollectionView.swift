@@ -17,18 +17,16 @@ extension GridVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       if isFiltering {
-            print("Filter")
+       if isFiltering{
             return filteredPokemon.count
         }
-        print("reloaded")
         return PokemonManager.PokemonList.count
         }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
         let poke: Pokemon
-        if isFiltering {
+        if isFiltering{
           poke = filteredPokemon[indexPath.item]
           cell.picture.image = PokemonManager.getPokemonPhotos(pokeList: filteredPokemon, indexPath: indexPath.item)
         } else {
@@ -39,6 +37,7 @@ extension GridVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         cell.id.text = "ID: \(poke.id)"
         cell.pokeInt = poke.id
         cell.pokeInt = indexPath.item
+        
         
         return cell
     }
@@ -57,7 +56,7 @@ extension GridVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             }
             profile.pokeInt = clickedPokemon
         }
-
+        
     }
 }
 

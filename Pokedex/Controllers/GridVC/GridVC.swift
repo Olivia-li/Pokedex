@@ -11,10 +11,14 @@ import UIKit
 class GridVC: UIViewController {
     
     @IBOutlet weak var PokeTable: UICollectionView!
+    
+    
     var clickedPokemon: Int!
     let searchController = UISearchController(searchResultsController: nil)
     var filteredPokemon: [Pokemon] = []
-    let categories = ["Bug", "Grass", "Dark", "Ground", "Dragon", "Ice", "Electric", "Normal", "Fairy", "Poison", "Fighting", "Fire", "Rock", "Flying", "Steel", "Ghost", "Water", "Unknown"]
+    var state:[String:Bool] = [:]
+    var typeChanged: Bool = false
+    var filterContentExists: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +30,17 @@ class GridVC: UIViewController {
         self.searchController.isActive = true
         definesPresentationContext = true
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        filterContentForType(state)
+        PokeTable.reloadData()
+        print(filteredPokemon)
+    }
 
+    @IBAction func filterClicked(_ sender: Any) {
+        performSegue(withIdentifier: "toSettings", sender: self)
+    }
     @IBAction func toggleClicked(_ sender: Any) {
         TableManager.toggle(view: PokeTable)
         PokeTable.reloadData()

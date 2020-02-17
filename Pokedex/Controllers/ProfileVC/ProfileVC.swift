@@ -49,8 +49,6 @@ class ProfileVC: UIViewController {
         total.text = String(PokemonManager.getPokemonStats(pokeList, pokeInt, "total"))
     }
     
-    
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

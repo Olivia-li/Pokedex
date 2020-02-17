@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension GridVC: UISearchResultsUpdating {
+extension GridVC: UISearchResultsUpdating,UISearchBarDelegate{
     
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
@@ -28,6 +28,24 @@ extension GridVC: UISearchResultsUpdating {
     }
     
     var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
+      return searchController.isActive && !isSearchBarEmpty || (self.typeChanged && self.filterContentExists)
     }
+    
+    func filterContentForType(_ dict: [String:Bool]) {
+        filteredPokemon = PokemonManager.PokemonList.filter { (pokemon: Pokemon) -> Bool in
+            for type in pokemon.types {
+                if dict[type.rawValue] == true{
+                    return true
+                }
+            }
+            print("type")
+            return false
+        }
+        if filteredPokemon.capacity != 0 {
+            self.filterContentExists = true
+        }
+        typeChanged = true
+        PokeTable.reloadData()
+    }
+    
 }

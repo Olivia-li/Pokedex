@@ -36,6 +36,9 @@ enum PokeType:String {
     case Unknown
 }
 
+extension PokeType: CaseIterable { }
+
+
 class Pokemon: Decodable {
     /* Note 2:
        The image for each Pokemon is not provided, but a URL is. You should look up how to get an image from it's URL.
