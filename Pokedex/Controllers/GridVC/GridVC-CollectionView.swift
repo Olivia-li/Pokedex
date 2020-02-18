@@ -37,9 +37,6 @@ extension GridVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         cell.id.text = "ID: \(poke.id)"
         cell.pokeInt = poke.id
         cell.pokeInt = indexPath.item
-    
-        
-        
         
         return cell
     }

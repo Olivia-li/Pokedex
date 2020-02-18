@@ -20,6 +20,8 @@ class GridVC: UIViewController {
     var state:[String:Bool] = [:]
     var typeChanged: Bool = false
     var isTypeEmpty: Bool = false
+    var atk_stats: [String] = ["0", "200"]
+    var rangeChanged: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +36,10 @@ class GridVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        filterContentForAttack(Int(atk_stats[0]) ?? 0, Int(atk_stats[1]) ?? 200)
         filterContentForType(state)
         PokeTable.reloadData()
-        print(filteredPokemon)
+        print(atk_stats)
     }
 
     @IBAction func filterClicked(_ sender: Any) {
@@ -49,6 +52,7 @@ class GridVC: UIViewController {
     @IBAction func clearClicked(_ sender: Any) {
         typeChanged = false
         isTypeEmpty = false
+        rangeChanged = false
         PokeTable.reloadData()
     }
     

@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsVC: UIViewController {
     var state: [String:Bool] = ["Bug":false, "Grass":false, "Dark":false, "Ground":false, "Dragon":false, "Ice":false, "Electric":false, "Normal":false, "Fairy":false, "Poison":false, "Fighting":false, "Psychic":false, "Fire":false, "Rock":false, "Flying":false, "Steel":false, "Ghost":false, "Water":false, "Unknown":false]
+    
+    var atk_stats:[String?] = ["0", "200"]
 
     @IBOutlet weak var bug: UISwitch!
     @IBOutlet weak var grass: UILabel!
@@ -31,7 +33,12 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var water: UISwitch!
     @IBOutlet weak var unknown: UISwitch!
     
+    @IBOutlet weak var atk_min: UITextField!
+    @IBOutlet weak var atk_max: UITextField!
+    
 
+    
+    
     
     
     override func viewDidLoad() {
@@ -97,11 +104,18 @@ class SettingsVC: UIViewController {
         state["Unknown"] = !state["Unknown"]!
     }
     
+    @IBAction func atk_field(_ sender: Any) {
+        atk_stats[0] = atk_min.text
+    }
+    @IBAction func atk_max(_ sender: Any) {
+        atk_stats[1] = atk_max.text
+    }
     func filterData() {
            guard let vc = self.navigationController?.viewControllers[0] as! GridVC? else {
                return
            }
            vc.state = self.state
+        vc.atk_stats = self.atk_stats as! [String]
            self.navigationController?.popToRootViewController(animated: true)
        }
        
